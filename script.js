@@ -83,6 +83,41 @@
   });
 })();
 
+// ===== Active nav link on scroll =====
+(function activeNavLink(){
+  const links = document.querySelectorAll('.main-nav a');
+  const sections = Array.from(links)
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = '#' + entry.target.id;
+      const link = document.querySelector(`.main-nav a[href="${id}"]`);
+      if (!link) return;
+      if (entry.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(s => io.observe(s));
+})();
+
+// ===== Locked header (adds background/blur on scroll) =====
+(function lockedHeader(){
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
 // ===== Mobile nav toggle =====
 (function nav(){
   const toggle = document.getElementById('navToggle');
@@ -124,6 +159,30 @@
     t.style.transform = 'translateY(24px)';
     t.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
     io.observe(t);
+  });
+})();
+
+// ===== Staggered reveal for more-project cards =====
+(function staggerCards(){
+  const cards = document.querySelectorAll('.more-card');
+  if (!cards.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting){
+        const idx = Array.from(cards).indexOf(entry.target);
+        entry.target.style.transitionDelay = (idx % 3) * 0.08 + 's';
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach(c => {
+    c.style.opacity = 0;
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    io.observe(c);
   });
 })();
 

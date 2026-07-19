@@ -37,6 +37,7 @@ body{
   *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
 
+
 a{ color: inherit; text-decoration: none; }
 img{ max-width: 100%; display:block; }
 
@@ -88,12 +89,25 @@ main, .site-header, .site-footer{ position: relative; z-index: 2; }
 
 /* ============ HEADER ============ */
 .site-header{
+  position: sticky;
+  top: 0;
+  z-index: 40;
   display:flex;
   align-items:center;
   justify-content: space-between;
-  padding: 28px var(--edge);
+  padding: 22px var(--edge);
   max-width: var(--max-w);
   margin: 0 auto;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(0px);
+  transition: background 0.35s ease, border-color 0.35s ease, padding 0.35s ease, backdrop-filter 0.35s ease;
+}
+.site-header.scrolled{
+  background: rgba(6,5,12,0.72);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  padding: 14px var(--edge);
 }
 
 .logo{
@@ -120,6 +134,8 @@ main, .site-header, .site-footer{ position: relative; z-index: 2; }
   transition: width 0.25s ease;
 }
 .main-nav a:hover::after{ width:100%; }
+.main-nav a.active{ color: var(--accent-glow); }
+.main-nav a.active::after{ width: 100%; background: var(--accent-glow); }
 
 .nav-cta{
   border: 1px solid var(--line-strong);
@@ -243,31 +259,6 @@ main, .site-header, .site-footer{ position: relative; z-index: 2; }
 }
 .btn-ghost:hover{ transform: translateY(-2px); border-color: var(--accent); }
 
-.social-icons{
-  display:flex;
-  gap: 14px;
-  margin-top: 28px;
-}
-.social-icon{
-  width: 42px; height: 42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  color: var(--text-muted);
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
-}
-.social-icon svg{ width: 18px; height: 18px; }
-.social-icon:hover{
-  color: #fff;
-  border-color: var(--accent);
-  background: var(--accent-strong);
-  transform: translateY(-3px);
-}
-.social-icon.small{ width: 34px; height: 34px; }
-.social-icon.small svg{ width: 15px; height: 15px; }
-
 .hero-photo{
   position: absolute;
   right: var(--edge);
@@ -281,6 +272,11 @@ main, .site-header, .site-footer{ position: relative; z-index: 2; }
   overflow: hidden;
   border: 1px solid var(--line-strong);
   position: relative;
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
 }
 .photo-frame img{
   width: 100%; height: 100%;
@@ -569,21 +565,40 @@ main, .site-header, .site-footer{ position: relative; z-index: 2; }
 }
 .contact-link{
   background: var(--bg-panel);
-  padding: 28px;
+  padding: 26px 28px;
   display:flex;
-  flex-direction: column;
-  gap: 8px;
-  transition: background 0.2s ease;
+  align-items: center;
+  gap: 18px;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
-.contact-link:hover{ background: #1a1530; }
-.contact-link span{
+.contact-link:hover{ background: #1a1530; transform: translateX(4px); }
+.contact-icon{
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--text-muted);
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.contact-icon svg{ width: 19px; height: 19px; }
+.contact-link:hover .contact-icon{
+  color: #fff;
+  border-color: var(--accent);
+  background: var(--accent-strong);
+  transform: rotate(-8deg) scale(1.08);
+}
+.contact-text{ display:flex; flex-direction: column; gap: 6px; }
+.contact-text span{
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-dim);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.contact-link strong{ font-size: 1.1rem; font-weight: 500; }
+.contact-text strong{ font-size: 1.1rem; font-weight: 500; }
 
 /* ============ FOOTER ============ */
 .site-footer{
@@ -591,15 +606,11 @@ main, .site-header, .site-footer{ position: relative; z-index: 2; }
   margin: 0 auto;
   padding: 32px var(--edge) 60px;
   display:flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
   color: var(--text-dim);
   font-size: 0.85rem;
   border-top: 1px solid var(--line);
 }
-.footer-icons{ margin-top: 0; }
 .site-footer a:hover{ color: var(--accent); }
 
 /* ============ REVEAL ANIM ============ */
