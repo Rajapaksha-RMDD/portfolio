@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, ArrowUpRight, ChevronDown, Sparkles, Smartphone, Server, Cpu, Globe } from 'lucide-react';
+import { ExternalLink, Github, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { PROJECTS, MORE_REPOSITORIES } from '../data/portfolioData';
 import { Project } from '../types';
 
@@ -23,20 +23,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
   ];
 
   return (
-    <section id="projects" className="relative z-20 py-24 px-6 md:px-12 max-w-7xl mx-auto">
-      {/* Eyebrow & Headline (Matching Frame 00:24) */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <section id="projects" className="relative z-20 py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
         <div>
           <p className="font-mono text-xs tracking-widest text-zinc-500 uppercase mb-3">
             [ SELECTED BUILDS ]
           </p>
-          <h2 className="font-display font-black text-5xl md:text-7xl tracking-tighter uppercase leading-none">
+          <h2 className="font-display font-black text-3xl sm:text-5xl md:text-7xl tracking-tight uppercase leading-none">
             <span>ARCHIVED </span>
             <span className="text-rose-600">WORKS</span>
           </h2>
         </div>
 
-        {/* Filter Tabs */}
         <div className="flex items-center gap-1.5 p-1 bg-zinc-900/80 border border-zinc-800 rounded-xl overflow-x-auto max-w-full">
           {categories.map((cat) => (
             <button
@@ -54,7 +52,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
         </div>
       </div>
 
-      {/* Primary Projects Bento Grid (Matching Frame 00:25) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredProjects.map((project) => (
           <div
@@ -62,14 +59,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
             className="group relative bg-[#0e0d18] border border-zinc-800/90 hover:border-rose-500/50 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-[0_20px_50px_rgba(225,29,72,0.12)] hover:-translate-y-1"
           >
             <div>
-              {/* Project Preview Window Mockup */}
               <div
                 className="relative aspect-video w-full rounded-2xl overflow-hidden mb-6 flex flex-col justify-between p-5 border border-white/5"
                 style={{
                   background: `linear-gradient(135deg, ${project.accentColors.from} 0%, ${project.accentColors.to} 100%)`,
                 }}
               >
-                {/* Visual Glass Top Bar */}
                 <div className="flex items-center justify-between z-10">
                   <span className="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase bg-black/40 backdrop-blur-md text-zinc-300 border border-white/10">
                     {project.visualTag}
@@ -79,10 +74,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                   </span>
                 </div>
 
-                {/* Abstract UI Grid Blueprint decoration */}
                 <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
 
-                {/* Bottom preview info */}
                 <div className="relative z-10 flex items-end justify-between">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 3).map((tag) => (
@@ -105,7 +98,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 </div>
               </div>
 
-              {/* Title & Description */}
               <div className="space-y-3">
                 <h3 className="font-display font-bold text-2xl md:text-3xl text-white group-hover:text-rose-400 transition-colors tracking-tight">
                   {project.title}
@@ -116,7 +108,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               </div>
             </div>
 
-            {/* Bottom Actions */}
             <div className="pt-6 mt-6 border-t border-zinc-800/80 flex items-center justify-between gap-4">
               <button
                 onClick={() => onSelectProject(project)}
@@ -142,7 +133,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
         ))}
       </div>
 
-      {/* Expandable "Load More Experience" Section (Matching Frame 00:29) */}
       <div className="mt-16 text-center">
         <button
           onClick={() => setShowMore(!showMore)}
