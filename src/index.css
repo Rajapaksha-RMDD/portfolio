@@ -35,7 +35,6 @@
   animation-play-state: paused;
 }
 
-/* Custom scrollbar for modern dark look */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
