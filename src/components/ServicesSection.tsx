@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Minus, ArrowUpRight } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { SERVICES } from '../data/portfolioData';
 
 export const ServicesSection: React.FC = () => {
