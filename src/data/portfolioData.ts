@@ -16,8 +16,8 @@ export const PERSONAL_INFO = {
   tiktokHandle: '@dasindu_rajapaksha',
   facebook: 'https://www.facebook.com/share/18Npqm29dD/?mibextid=wwXIfr',
   linkedin: 'https://www.linkedin.com/in/dasindu-rajapaksha',
-  photoUrl: './assets/aistudio/profile.png',
-  videoUrl: './assets/aistudio/video.mp4',
+  photoUrl: './assets/profile.png',
+  videoUrl: './assets/video.mp4',
   status: 'AVAILABLE FOR WORK & FREELANCE',
   bio: `I'm a computing student and software developer who learns by shipping real things: full-stack systems for retail shops, IoT rigs wired by hand, and exam tools built because the official links failed. Frontend is where I spend most of my time — turning complex logic into something people actually enjoy using. Outside the code editor, I'm behind the lens producing short-form videography for TikTok and running a creator page on Facebook.`,
 };
@@ -262,63 +262,4 @@ export const CREDENTIALS: Credential[] = [
   }
 ];
 
-export const TECH_STACK = {
-  frontend: [
-    { name: 'React', icon: 'Code' },
-    { name: 'TypeScript', icon: 'FileCode' },
-    { name: 'Flutter', icon: 'Smartphone' },
-    { name: 'JavaScript', icon: 'Code2' },
-    { name: 'Tailwind CSS', icon: 'Palette' },
-    { name: 'HTML5 & CSS3', icon: 'Layout' }
-  ],
-  backend: [
-    { name: 'ASP.NET Core', icon: 'Server' },
-    { name: 'C#', icon: 'Terminal' },
-    { name: 'Node.js', icon: 'Cpu' },
-    { name: 'Express', icon: 'Network' },
-    { name: 'REST APIs', icon: 'Share2' }
-  ],
-  database: [
-    { name: 'SQL Server', icon: 'Database' },
-    { name: 'MySQL', icon: 'Layers' },
-    { name: 'Firebase', icon: 'Flame' }
-  ],
-  hardware: [
-    { name: 'ESP32', icon: 'Radio' },
-    { name: 'Arduino C++', icon: 'Cpu' },
-    { name: 'Sensors & I2C', icon: 'Activity' }
-  ],
-  tools: [
-    { name: 'Git & GitHub', icon: 'GitBranch' },
-    { name: 'VS Code', icon: 'Monitor' },
-    { name: 'Visual Studio', icon: 'TerminalSquare' },
-    { name: 'Postman', icon: 'Send' }
-  ]
-};
-
-export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    platform: 'GitHub',
-    handle: 'Rajapaksha-RMDD',
-    url: 'https://github.com/Rajapaksha-RMDD',
-    icon: 'github'
-  },
-  {
-    platform: 'WhatsApp',
-    handle: '+94 71 356 8356',
-    url: 'https://wa.me/94713568356',
-    icon: 'whatsapp'
-  },
-  {
-    platform: 'TikTok',
-    handle: '@dasindu_rajapaksha',
-    url: 'https://www.tiktok.com/@dasindu_rajapaksha?_r=1&_t=ZS-986E8XDNGv2',
-    icon: 'tiktok'
-  },
-  {
-    platform: 'Facebook',
-    handle: 'Digital Creator',
-    url: 'https://www.facebook.com/share/18Npqm29dD/?mibextid=wwXIfr',
-    icon: 'facebook'
-  }
-];
+export const SERVICES_LIST: Service[] = SERVICES;
