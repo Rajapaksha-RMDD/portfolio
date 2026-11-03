@@ -27,7 +27,6 @@ export const VideoScrubber: React.FC<VideoScrubberProps> = ({
     const video = videoRef.current;
     if (!video) return;
 
-    // Strict requirement: Do not call play(). Explicitly pause.
     video.pause();
 
     let animId: number;
@@ -41,13 +40,12 @@ export const VideoScrubber: React.FC<VideoScrubberProps> = ({
 
     const loop = () => {
       const now = performance.now();
-      const dt = Math.min((now - lastTime) / 1000, 0.1); // prevent extreme jumps on tab pause
+      const dt = Math.min((now - lastTime) / 1000, 0.1);
       lastTime = now;
 
       const reducedMotion = checkReducedMotion();
 
       if (reducedMotion) {
-        // Reduced motion: freeze on the first frame
         if (video.currentTime !== 0) {
           video.currentTime = 0;
         }
@@ -67,12 +65,8 @@ export const VideoScrubber: React.FC<VideoScrubberProps> = ({
         const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 1;
         const target = progress * duration;
 
-        // User formula:
-        // current += (target - current) * (1 - Math.exp(-dt * 8))
-        // then video.currentTime = current
         current += (target - current) * (1 - Math.exp(-dt * 8));
 
-        // Numerical safety clamps
         if (current < 0) current = 0;
         if (current > duration) current = duration;
 
@@ -131,7 +125,6 @@ export const VideoScrubber: React.FC<VideoScrubberProps> = ({
         className="w-full h-full object-cover select-none"
         style={{ objectFit: 'cover' }}
         onPlay={(e) => {
-          // Extra guard to never allow play()
           e.currentTarget.pause();
         }}
       />
