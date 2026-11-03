@@ -25,7 +25,7 @@ export function getCvDownloadUrls(): string[] {
     const origin = loc.origin;
 
     // Highest priority: document-relative absolute paths
-    candidates.push(`${origin}${pathname}assets/Dasindu_Rajapaksha_CV.pdf`);
+    candidates.push(`${origin}${pathname}assets/aistudio/Dasindu_Rajapaksha_CV.pdf`);
     candidates.push(`${origin}${pathname}Dasindu_Rajapaksha_CV.pdf`);
     candidates.push(`${origin}${pathname}cv.pdf`);
   }
