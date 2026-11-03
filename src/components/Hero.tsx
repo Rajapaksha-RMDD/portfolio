@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, Github, MessageSquare, Video, ArrowUpRight, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { downloadCv } from '../utils/downloadCv';
 
 interface HeroProps {
   onOpenContact: () => void;
@@ -100,8 +101,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
           <a
             href={PERSONAL_INFO.cvUrl}
             download={PERSONAL_INFO.cvFileName}
+            onClick={(e) => downloadCv(e)}
             title="Download Dasindu Rajapaksha CV (PDF)"
-            className="flex-1 sm:flex-initial min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-wider text-white border border-rose-500/40 hover:border-rose-400 bg-rose-950/40 hover:bg-rose-900/50 backdrop-blur-sm transition-all duration-200"
+            className="flex-1 sm:flex-initial min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-wider text-white border border-rose-500/40 hover:border-rose-400 bg-rose-950/40 hover:bg-rose-900/50 backdrop-blur-sm transition-all duration-200 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5 text-rose-400" />
             <span>DOWNLOAD CV</span>
