@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sliders, Eye, SplitSquareVertical, Tv, Activity, PlayCircle, X } from 'lucide-react';
+import { Eye, SplitSquareVertical, Tv, Activity, PlayCircle, X } from 'lucide-react';
 import { ViewMode } from '../types';
 
 interface ScrubModeControllerProps {
@@ -37,7 +37,6 @@ export const ScrubModeController: React.FC<ScrubModeControllerProps> = ({
 
   return (
     <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-[#0c0b16]/95 border border-zinc-700/80 rounded-2xl p-5 shadow-2xl backdrop-blur-xl animate-fadeIn text-white font-mono text-xs select-none">
-      {/* Header */}
       <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
         <div className="flex items-center gap-2">
           <Activity className="w-4 h-4 text-rose-500" />
@@ -54,7 +53,6 @@ export const ScrubModeController: React.FC<ScrubModeControllerProps> = ({
         </button>
       </div>
 
-      {/* Physics Telemetry */}
       <div className="my-4 p-3 rounded-xl bg-black/60 border border-zinc-800 space-y-2">
         <div className="flex justify-between items-center text-[11px]">
           <span className="text-zinc-500">Page Progress:</span>
@@ -83,7 +81,6 @@ export const ScrubModeController: React.FC<ScrubModeControllerProps> = ({
         )}
       </div>
 
-      {/* View Mode Switcher */}
       <div className="space-y-2">
         <span className="text-[10px] tracking-wider text-zinc-400 uppercase block">
           Display Layout:
@@ -139,7 +136,6 @@ export const ScrubModeController: React.FC<ScrubModeControllerProps> = ({
         </div>
       </div>
 
-      {/* Video Backdrop Opacity Slider (When backdrop mode is active) */}
       {(viewMode === 'video-backdrop' || viewMode === 'portfolio') && (
         <div className="mt-4 pt-3 border-t border-zinc-800">
           <div className="flex justify-between items-center text-[10px] text-zinc-400 mb-1.5">
@@ -157,6 +153,17 @@ export const ScrubModeController: React.FC<ScrubModeControllerProps> = ({
           />
         </div>
       )}
+
+      <div className="mt-4 pt-3 border-t border-zinc-800">
+        <a
+          href="./dasindu-rajapaksha-portfolio.zip"
+          download="dasindu-rajapaksha-portfolio.zip"
+          className="w-full py-2.5 px-3 rounded-xl bg-zinc-900 hover:bg-rose-600 border border-zinc-700 hover:border-rose-500 text-zinc-200 hover:text-white flex items-center justify-center gap-2 transition-all text-xs font-mono"
+        >
+          <span>Download Project ZIP</span>
+          <span className="text-rose-400 text-[10px]">(.zip)</span>
+        </a>
+      </div>
     </div>
   );
 };
