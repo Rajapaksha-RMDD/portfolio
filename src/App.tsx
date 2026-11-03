@@ -30,7 +30,6 @@ export default function App() {
     reducedMotion: false,
   });
 
-  // Track scroll progress for the top progress bar and active section detection
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -65,13 +64,11 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#07060b] text-[#f4f2fa] font-body selection:bg-rose-600 selection:text-white">
-      {/* Top 2px Scroll Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-red-600 via-rose-500 to-amber-400 z-50 transition-all duration-75 pointer-events-none shadow-[0_0_8px_#f43f5e]"
         style={{ width: `${scrollPercent}%` }}
       />
 
-      {/* Video Scrubber Engine (Always actively bound to scroll progress using the requested physics formula) */}
       <VideoScrubber
         videoSrc={PERSONAL_INFO.videoUrl}
         opacity={
@@ -85,18 +82,12 @@ export default function App() {
             ? videoOpacity * 0.4
             : 0
         }
-        className={
-          viewMode === 'split-view'
-            ? 'hidden' // Rendered separately inside the split-view column
-            : ''
-        }
+        className={viewMode === 'split-view' ? 'hidden' : ''}
         onStatsUpdate={setScrubStats}
       />
 
-      {/* Split-View Mode Layout */}
       {viewMode === 'split-view' ? (
         <div className="flex flex-col lg:flex-row min-h-screen">
-          {/* Left Column: Fixed Sticky Scrubbing Video Viewer */}
           <div className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 bg-black flex flex-col justify-between p-6 border-r border-zinc-800 z-30">
             <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
               <span className="font-mono text-xs text-rose-400 font-bold tracking-widest uppercase">
@@ -128,7 +119,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Right Column: Scrollable Redesigned Portfolio */}
           <div className="lg:w-1/2 relative z-20">
             <Navbar
               onOpenContact={handleOpenContact}
@@ -147,7 +137,6 @@ export default function App() {
           </div>
         </div>
       ) : viewMode === 'pure-video' ? (
-        /* Pure Video Scrubber Inspection Mode */
         <div className="relative z-20 min-h-[400vh] flex flex-col justify-between p-8 text-white select-none">
           <div className="fixed top-8 left-8 z-40 bg-black/80 backdrop-blur-md border border-zinc-700/80 rounded-2xl p-4 max-w-sm">
             <h2 className="font-display font-bold text-lg text-white mb-1">
@@ -189,7 +178,6 @@ export default function App() {
           </div>
         </div>
       ) : (
-        /* Standard Portfolio Experience (with background glow / optional video backdrop) */
         <div className="relative z-10">
           <Navbar
             onOpenContact={handleOpenContact}
@@ -211,7 +199,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Floating HUD Controller */}
       <ScrubModeController
         isOpen={controlPanelOpen}
         onClose={() => setControlPanelOpen(false)}
@@ -222,7 +209,6 @@ export default function App() {
         stats={scrubStats}
       />
 
-      {/* Project Details Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
