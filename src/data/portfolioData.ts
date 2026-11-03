@@ -21,7 +21,7 @@ export const PERSONAL_INFO = {
   linkedin: 'https://www.linkedin.com/in/dasindu-rajapaksha',
   photoUrl: './assets/profile.png',
   videoUrl: './assets/aistudio/video.mp4',
-  cvUrl: './assets/Dasindu_Rajapaksha_CV.pdf',
+  cvUrl: `${cleanBase}assets/Dasindu_Rajapaksha_CV.pdf`,
   cvFileName: 'Dasindu_Rajapaksha_CV.pdf',
   status: 'AVAILABLE FOR WORK & FREELANCE',
   bio: `I'm a computing student and software developer who learns by shipping real things: full-stack systems for retail shops, IoT rigs wired by hand, and exam tools built because the official links failed. Frontend is where I spend most of my time — turning complex logic into something people actually enjoy using. Outside the code editor, I'm behind the lens producing short-form videography for TikTok and running a creator page on Facebook.`,
