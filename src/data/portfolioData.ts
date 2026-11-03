@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
   facebook: 'https://www.facebook.com/share/18Npqm29dD/?mibextid=wwXIfr',
   linkedin: 'https://www.linkedin.com/in/dasindu-rajapaksha',
   photoUrl: './assets/profile.png',
-  videoUrl: './assets/video.mp4',
+  videoUrl: './assets/aistudio/video.mp4',
   status: 'AVAILABLE FOR WORK & FREELANCE',
   bio: `I'm a computing student and software developer who learns by shipping real things: full-stack systems for retail shops, IoT rigs wired by hand, and exam tools built because the official links failed. Frontend is where I spend most of my time — turning complex logic into something people actually enjoy using. Outside the code editor, I'm behind the lens producing short-form videography for TikTok and running a creator page on Facebook.`,
 };
