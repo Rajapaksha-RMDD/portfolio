@@ -1,12 +1,11 @@
 import React from 'react';
-import { Video, ArrowUpRight, Play, Film, Share2 } from 'lucide-react';
+import { ArrowUpRight, Film, Share2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContentSection: React.FC = () => {
   return (
     <section id="content" className="relative z-20 py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column */}
         <div className="lg:col-span-5 space-y-6">
           <p className="font-mono text-xs tracking-widest text-zinc-500 uppercase">
             [ 05 — VIDEOGRAPHY & MEDIA ]
@@ -28,9 +27,7 @@ export const ContentSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Platform Cards */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* TikTok Card */}
           <a
             href={PERSONAL_INFO.tiktok}
             target="_blank"
@@ -57,7 +54,6 @@ export const ContentSection: React.FC = () => {
             </div>
           </a>
 
-          {/* Facebook Creator Card */}
           <a
             href={PERSONAL_INFO.facebook}
             target="_blank"
