@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { CREDENTIALS } from '../data/portfolioData';
 import { Credential } from '../types';
 
@@ -16,20 +16,18 @@ export const CredentialsCarousel: React.FC = () => {
   };
 
   return (
-    <section id="credentials" className="relative z-20 py-24 px-6 md:px-12 max-w-7xl mx-auto">
-      {/* Eyebrow & Heading (Matching Frame 00:30) */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <section id="credentials" className="relative z-20 py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
         <div>
           <p className="font-mono text-xs tracking-widest text-zinc-500 uppercase mb-3">
             [ CERTIFIED TRACK RECORD ]
           </p>
-          <h2 className="font-display font-black text-5xl md:text-7xl tracking-tighter uppercase leading-none">
+          <h2 className="font-display font-black text-3xl sm:text-5xl md:text-7xl tracking-tight uppercase leading-none">
             <span>LICENSES & </span>
             <span className="text-rose-600">CREDENTIALS</span>
           </h2>
         </div>
 
-        {/* Carousel Prev/Next Buttons */}
         <div className="flex items-center gap-3">
           <button
             onClick={prev}
@@ -48,7 +46,6 @@ export const CredentialsCarousel: React.FC = () => {
         </div>
       </div>
 
-      {/* Interactive 3D Perspective Card Track */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {CREDENTIALS.map((cred, idx) => {
           const isFeatured = idx === currentIndex;
@@ -73,7 +70,6 @@ export const CredentialsCarousel: React.FC = () => {
                   <span className="font-mono text-xs text-zinc-500">{cred.year}</span>
                 </div>
 
-                {/* Simulated Certificate Graphic Frame */}
                 <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-zinc-900 to-black p-5 border border-zinc-800 flex flex-col justify-between mb-6 relative overflow-hidden group">
                   <div className="absolute -right-8 -top-8 w-28 h-28 bg-rose-600/10 rounded-full blur-xl pointer-events-none" />
 
@@ -100,7 +96,6 @@ export const CredentialsCarousel: React.FC = () => {
                 </p>
               </div>
 
-              {/* Skills Footer */}
               <div className="pt-4 border-t border-zinc-800/70">
                 <div className="flex flex-wrap gap-1.5">
                   {cred.skills.map((skill) => (
@@ -118,7 +113,6 @@ export const CredentialsCarousel: React.FC = () => {
         })}
       </div>
 
-      {/* Pagination Indicator Dots */}
       <div className="flex items-center justify-center gap-2 mt-10">
         {CREDENTIALS.map((_, dotIdx) => (
           <button
@@ -132,7 +126,6 @@ export const CredentialsCarousel: React.FC = () => {
         ))}
       </div>
 
-      {/* Modal View for Credential Inspection */}
       {selectedCred && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
