@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles, Sliders, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { downloadCv } from '../utils/downloadCv';
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -78,10 +79,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href={PERSONAL_INFO.cvUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Download / View Dasindu Rajapaksha's CV (PDF)"
-            className="p-2 sm:px-3 sm:py-2 rounded-full border border-rose-500/50 text-rose-300 hover:text-white hover:bg-rose-600/30 bg-rose-950/40 text-xs font-mono flex items-center gap-1.5 transition-colors shadow-[0_0_15px_rgba(225,29,72,0.2)]"
+            download={PERSONAL_INFO.cvFileName}
+            onClick={(e) => downloadCv(e)}
+            title="Download Dasindu Rajapaksha's CV (PDF)"
+            className="p-2 sm:px-3 sm:py-2 rounded-full border border-rose-500/50 text-rose-300 hover:text-white hover:bg-rose-600/30 bg-rose-950/40 text-xs font-mono flex items-center gap-1.5 transition-colors shadow-[0_0_15px_rgba(225,29,72,0.2)] cursor-pointer"
           >
             <Download className="w-3.5 h-3.5 text-rose-400" />
             <span className="text-[11px] font-semibold">CV</span>
@@ -146,10 +147,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           ))}
           <a
             href={PERSONAL_INFO.cvUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mt-2 text-center py-3 text-xs font-semibold tracking-wider text-white border border-rose-500/50 bg-rose-950/40 hover:bg-rose-900/50 rounded-full flex items-center justify-center gap-2"
+            download={PERSONAL_INFO.cvFileName}
+            onClick={(e) => {
+              setMobileMenuOpen(false);
+              downloadCv(e);
+            }}
+            className="mt-2 text-center py-3 text-xs font-semibold tracking-wider text-white border border-rose-500/50 bg-rose-950/40 hover:bg-rose-900/50 rounded-full flex items-center justify-center gap-2 cursor-pointer"
           >
             <Download className="w-4 h-4 text-rose-400" />
             <span>DOWNLOAD CV (PDF)</span>
