@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download, ArrowUpRight, Sparkles, Code2, Server, Cpu, Video, Layers, Database, FileText } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { downloadCv, viewCvPdf } from '../utils/downloadCv';
 
 export const AboutSection: React.FC = () => {
 
@@ -65,6 +66,7 @@ export const AboutSection: React.FC = () => {
               <a
                 href={PERSONAL_INFO.cvUrl}
                 download={PERSONAL_INFO.cvFileName}
+                onClick={(e) => downloadCv(e)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-display font-bold text-xs tracking-wider text-white bg-zinc-950 hover:bg-rose-600 transition-colors shadow-lg shadow-black/10 cursor-pointer"
               >
                 <span>DOWNLOAD CV</span>
@@ -75,6 +77,7 @@ export const AboutSection: React.FC = () => {
                 href={PERSONAL_INFO.cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => viewCvPdf(e)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-display font-bold text-xs tracking-wider text-zinc-800 bg-white hover:bg-zinc-100 border border-zinc-300 transition-colors cursor-pointer"
               >
                 <FileText className="w-4 h-4 text-rose-600" />
