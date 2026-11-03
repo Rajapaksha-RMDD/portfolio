@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, Mail, Copy, Check, MessageSquare, Github, Video, ArrowUpRight } from 'lucide-react';
+import { ArrowUp, Copy, Check, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
@@ -9,7 +9,6 @@ export const ContactSection: React.FC = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      // Format to Colombo / Sri Lanka time (UTC+5:30) or local formatted
       const options: Intl.DateTimeFormatOptions = {
         timeZone: PERSONAL_INFO.timezone,
         hour: '2-digit',
@@ -40,13 +39,12 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="relative z-20 pt-28 pb-16 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900">
-      {/* Eyebrow & Giant Headline (Matching Frame 00:41) */}
-      <div className="mb-20">
-        <p className="font-mono text-xs tracking-widest text-zinc-500 uppercase mb-4">
+    <footer id="contact" className="relative z-20 pt-16 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900">
+      <div className="mb-12 sm:mb-20">
+        <p className="font-mono text-xs tracking-widest text-zinc-500 uppercase mb-3 sm:mb-4">
           [ 06 — GET IN TOUCH ]
         </p>
-        <h2 className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tighter uppercase leading-[0.9]">
+        <h2 className="font-display font-black text-4xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight uppercase leading-[0.95] sm:leading-[0.9]">
           <span className="block text-white">LET'S CREATE</span>
           <span className="block text-rose-600 drop-shadow-[0_0_50px_rgba(225,29,72,0.4)]">
             SOMETHING
@@ -55,9 +53,7 @@ export const ContactSection: React.FC = () => {
         </h2>
       </div>
 
-      {/* Footer Details Grid (Matching Frame 00:42 in video) */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pt-12 border-t border-zinc-800/80">
-        {/* Column 1: Socials */}
         <div className="md:col-span-3 space-y-4">
           <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase block">
             SOCIALS
@@ -110,7 +106,6 @@ export const ContactSection: React.FC = () => {
           </ul>
         </div>
 
-        {/* Column 2: Direct Contact Details */}
         <div className="md:col-span-5 space-y-4">
           <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase block">
             DIRECT INQUIRIES
@@ -134,7 +129,6 @@ export const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Column 3: Live Local Time Clock & Back to Top */}
         <div className="md:col-span-4 flex flex-col justify-between items-start md:items-end">
           <div>
             <span className="font-mono text-[11px] tracking-widest text-zinc-500 uppercase block md:text-right">
@@ -160,7 +154,6 @@ export const ContactSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Copyright Bar */}
       <div className="mt-16 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-600 gap-4">
         <span>© {new Date().getFullYear()} DASINDU RAJAPAKSHA. ALL RIGHTS RESERVED.</span>
         <span>ENGINEERED WITH REACT, TYPESCRIPT &amp; VITE</span>
