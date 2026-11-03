@@ -16,8 +16,8 @@ export const PERSONAL_INFO = {
   tiktokHandle: '@dasindu_rajapaksha',
   facebook: 'https://www.facebook.com/share/18Npqm29dD/?mibextid=wwXIfr',
   linkedin: 'https://www.linkedin.com/in/dasindu-rajapaksha',
-  photoUrl: '/assets/aistudio/f78d47fe-20a8-4804-bc3b-2e066780a35d_removalai_preview_e2d63636.png',
-  videoUrl: '/assets/aistudio/WhatsApp_Video_2026-11-03_at_13.14.07_2c24aafd.mp4',
+  photoUrl: './assets/aistudio/profile.png',
+  videoUrl: './assets/aistudio/video.mp4',
   status: 'AVAILABLE FOR WORK & FREELANCE',
   bio: `I'm a computing student and software developer who learns by shipping real things: full-stack systems for retail shops, IoT rigs wired by hand, and exam tools built because the official links failed. Frontend is where I spend most of my time — turning complex logic into something people actually enjoy using. Outside the code editor, I'm behind the lens producing short-form videography for TikTok and running a creator page on Facebook.`,
 };

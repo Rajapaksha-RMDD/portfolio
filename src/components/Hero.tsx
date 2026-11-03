@@ -88,13 +88,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-48 h-48 md:w-72 md:h-72 rounded-full bg-rose-600/35 blur-3xl pointer-events-none" />
 
               <img
-                src={PERSONAL_INFO.photoUrl}
-                alt={PERSONAL_INFO.name}
-                className="w-full h-auto object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] contrast-[1.05]"
-              />
-
-              {/* Bottom vignette to blend bottom edge cleanly into background */}
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07060b] via-[#07060b]/60 to-transparent" />
+  src={PERSONAL_INFO.photoUrl}
+  alt={PERSONAL_INFO.name}
+  className="w-full h-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] contrast-[1.03]"
+  style={{
+    maskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
+    WebkitMaskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
+  }}
+/>
             </div>
           </div>
         </div>
