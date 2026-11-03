@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sparkles, Sliders } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles, Sliders, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -44,7 +44,6 @@ export const Navbar: React.FC<NavbarProps> = ({
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between gap-8">
-        {/* Zone 1: Brand Wordmark */}
         <a
           href="#top"
           className="group flex items-center gap-1.5 font-display text-xl font-bold tracking-tight text-white whitespace-nowrap shrink-0"
@@ -53,7 +52,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span className="w-1.5 h-1.5 rounded-full bg-rose-500 group-hover:scale-150 transition-transform shadow-[0_0_8px_#f43f5e]" />
         </a>
 
-        {/* Zone 2: Navigation Links (Single-Line Unbroken) */}
         <nav className="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest text-zinc-400">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.replace('#', '');
@@ -74,8 +72,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: Primary Actions */}
         <div className="flex items-center gap-3 shrink-0">
+          <a
+            href="./dasindu-rajapaksha-portfolio.zip"
+            download="dasindu-rajapaksha-portfolio.zip"
+            title="Download complete project source ZIP"
+            className="p-2 sm:px-3 sm:py-2 rounded-full border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-600 bg-zinc-900/60 text-xs font-mono flex items-center gap-1.5 transition-colors"
+          >
+            <Download className="w-4 h-4 text-rose-500" />
+            <span className="hidden sm:inline text-[11px]">Download ZIP</span>
+          </a>
+
           <button
             onClick={onToggleControlPanel}
             title="Video Scrub & Display Mode Controls"
@@ -99,7 +106,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             <ArrowUpRight className="w-3.5 h-3.5 text-rose-400" />
           </a>
 
-          {/* Mobile hamburger toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 text-zinc-400 hover:text-white"
@@ -110,7 +116,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-x-0 top-full bg-[#08070e]/95 backdrop-blur-xl border-b border-zinc-800 px-6 py-6 flex flex-col gap-4 shadow-2xl">
           {navItems.map((item) => (
@@ -124,11 +129,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
           ))}
           <a
+            href="./dasindu-rajapaksha-portfolio.zip"
+            download="dasindu-rajapaksha-portfolio.zip"
+            className="mt-2 text-center py-3 text-xs font-semibold tracking-wider text-white border border-zinc-700 bg-zinc-900 rounded-full flex items-center justify-center gap-2"
+          >
+            <Download className="w-4 h-4 text-rose-500" />
+            <span>DOWNLOAD PROJECT ZIP</span>
+          </a>
+          <a
             href={PERSONAL_INFO.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-2 text-center py-3 text-xs font-semibold tracking-wider text-white bg-rose-600 rounded-full"
+            className="mt-1 text-center py-3 text-xs font-semibold tracking-wider text-white bg-rose-600 rounded-full"
           >
             CONTACT ME (WHATSAPP)
           </a>
