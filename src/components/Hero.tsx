@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Github, MessageSquare, Video } from 'lucide-react';
+import { ArrowDown, Github, MessageSquare, Video, ArrowUpRight, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface HeroProps {
@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
       id="top"
       className="relative min-h-[100dvh] flex flex-col justify-between pt-24 sm:pt-28 pb-10 sm:pb-12 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto overflow-hidden select-none"
     >
-      {/* Ambient Crimson Glow */}
+      {/* Ambient Crimson Glow behind portrait */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] md:w-[620px] h-[340px] md:h-[620px] rounded-full pointer-events-none blur-[120px] opacity-40"
         style={{
@@ -20,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
         }}
       />
 
-      {/* Left Vertical Social Bar */}
+      {/* Left Vertical Social Bar (Matching the video at 00:01) */}
       <div className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-6 z-40">
         <a
           href={PERSONAL_INFO.github}
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
         </div>
       </div>
 
-      {/* Center Stage: Bold Typography without profile image */}
+      {/* Center Stage: Bold Architectural Typography & Clean Hero Presentation */}
       <div className="relative z-10 my-auto py-10 sm:py-16 flex flex-col items-center justify-center text-center">
         <div className="relative w-full max-w-5xl flex flex-col items-center justify-center">
           <h1 className="font-display font-extrabold tracking-tight uppercase leading-[0.92] select-none text-center">
@@ -89,8 +89,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
           </p>
         </div>
 
-        {/* Hero Actions (Touch-friendly for mobile) */}
-        <div className="relative z-30 flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 flex-wrap w-full max-w-md px-4">
+        {/* Hero Actions */}
+        <div className="relative z-30 flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 flex-wrap w-full max-w-xl px-4">
           <a
             href="#projects"
             className="flex-1 sm:flex-initial min-h-[44px] inline-flex items-center justify-center px-7 py-3 rounded-full text-xs font-semibold tracking-wider text-white bg-rose-600 hover:bg-rose-500 shadow-[0_0_25px_rgba(225,29,72,0.4)] transition-all duration-200 transform hover:-translate-y-0.5"
@@ -98,10 +98,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             VIEW PROJECTS
           </a>
           <a
+            href={PERSONAL_INFO.cvUrl}
+            download={PERSONAL_INFO.cvFileName}
+            title="Download Dasindu Rajapaksha CV (PDF)"
+            className="flex-1 sm:flex-initial min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-wider text-white border border-rose-500/40 hover:border-rose-400 bg-rose-950/40 hover:bg-rose-900/50 backdrop-blur-sm transition-all duration-200"
+          >
+            <Download className="w-3.5 h-3.5 text-rose-400" />
+            <span>DOWNLOAD CV</span>
+          </a>
+          <a
             href={PERSONAL_INFO.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 sm:flex-initial min-h-[44px] inline-flex items-center justify-center px-7 py-3 rounded-full text-xs font-semibold tracking-wider text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white bg-zinc-900/60 backdrop-blur-sm transition-all duration-200"
+            className="flex-1 sm:flex-initial min-h-[44px] inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-semibold tracking-wider text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white bg-zinc-900/60 backdrop-blur-sm transition-all duration-200"
           >
             SAY HELLO
           </a>
